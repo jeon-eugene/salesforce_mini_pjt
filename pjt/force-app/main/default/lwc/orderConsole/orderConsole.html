@@ -1,0 +1,93 @@
+<template>
+    <lightning-layout horizontal-align="space" multiple-rows>
+        <lightning-layout-item
+            padding="around-small"
+            size="12"
+            small-device-size="12"
+            medium-device-size="3"
+            large-device-size="2"
+        >
+            <c-contact-navigation
+                onnavitemselected={handleNavItemSelected}
+            ></c-contact-navigation>
+        </lightning-layout-item>
+
+        <template if:true={contactDetail}>
+            <lightning-layout-item
+                padding="around-small"
+                size="12"
+                small-device-size="12"
+                medium-device-size="5"
+                large-device-size="10"
+            >
+                <c-contact-detail record-id={recordId}></c-contact-detail>
+            </lightning-layout-item>
+            <lightning-layout-item
+                padding="around-small"
+                size="12"
+                small-device-size="12"
+                medium-device-size="5"
+                large-device-size="10"
+                style="margin-left: auto"
+            >
+                <c-contact-product-list
+                    record-id={recordId}
+                ></c-contact-product-list>
+            </lightning-layout-item>
+        </template>
+        <template if:true={orderHistoryView}>
+            <lightning-layout-item
+                padding="around-small"
+                size="12"
+                small-device-size="12"
+                medium-device-size="5"
+                large-device-size="10"
+            >
+                <c-order-datatable record-id={recordId}></c-order-datatable>
+            </lightning-layout-item>
+        </template>
+        <template if:true={caseHistoryView}>
+            <lightning-layout-item
+                padding="around-small"
+                size="12"
+                small-device-size="12"
+                medium-device-size="5"
+                large-device-size="10"
+            >
+                <c-filter-sales-case record-id={recordId}></c-filter-sales-case>
+                <c-filter-voice-case record-id={recordId}></c-filter-voice-case>
+            </lightning-layout-item>
+        </template>
+
+        <template if:true={flowView}>
+            <lightning-layout-item
+                padding="around-small"
+                size="12"
+                small-device-size="12"
+                medium-device-size="5"
+                large-device-size="10"
+            >
+                <lightning-flow
+                    flow-input-variables={inputVariables}
+                    flow-api-name="Screen_Flow_For_SalesCase"
+                    onstatuschange={handleFlowStatusChange}
+                >
+                </lightning-flow>
+            </lightning-layout-item>
+        </template>
+
+        <template if:true={orderView}>
+            <lightning-layout-item
+                padding="around-small"
+                size="12"
+                small-device-size="12"
+                medium-device-size="5"
+                large-device-size="10"
+            >
+                <c-order-product-browser
+                    record-id={recordId}
+                ></c-order-product-browser>
+            </lightning-layout-item>
+        </template>
+    </lightning-layout>
+</template>

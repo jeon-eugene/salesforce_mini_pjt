@@ -1,0 +1,60 @@
+<template>
+    <lightning-card title="상세 정보">
+        <template if:true={voiceCaseData}>
+            <template if:true={isViewMode}>
+                <lightning-record-view-form record-id={recordId} object-api-name="Case">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_1-of-2 padded-column">
+                            <lightning-output-field field-name="CaseNumber"></lightning-output-field>
+                            <lightning-output-field field-name="AccountId"></lightning-output-field>
+                            <lightning-output-field field-name="ProductId"></lightning-output-field>  
+                        </div>
+                        <div class="slds-col slds-size_1-of-2 padded-column">
+                            <lightning-output-field field-name="ContactId"></lightning-output-field>
+                            <lightning-output-field field-name="OwnerId"></lightning-output-field>
+                            <lightning-output-field field-name="Status"></lightning-output-field>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2 padded-column">
+                            <lightning-output-field field-name="Reason"></lightning-output-field>
+                        </div>
+                        <div class="slds-col slds-size_2-of-2 padded-column">
+                            <lightning-output-field field-name="Description"></lightning-output-field>
+                            
+                        </div>
+                    </div>
+                </lightning-record-view-form>
+            </template>
+            <template if:false={isViewMode}>
+                <lightning-record-edit-form record-id={recordId} object-api-name="Case">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_1-of-2 padded-column">
+                            <lightning-input-field field-name="ContactId" onchange={handleContactChange}></lightning-input-field>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2 padded-column">
+                            <lightning-input-field field-name="ProductId" onchange={handleProductChange}></lightning-input-field>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2 padded-column">
+                            <lightning-input-field field-name="Reason" onchange={handleReasonChange}></lightning-input-field>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2 padded-column">
+                            <lightning-input-field field-name="Status" onchange={handleStatusChange}></lightning-input-field>
+                        </div>
+                        <div class="slds-col slds-size_2-of-2 padded-column">
+                            <lightning-input-field field-name="Description" onchange={handleDescriptionChange}></lightning-input-field>
+                        </div>
+                    </div>
+                </lightning-record-edit-form>
+            </template>
+        </template>
+        <!-- Data failed to load -->
+        <template if:true={wiredVoiceCaseData.error}>
+            <div class="slds-text-color-error">
+                An error occurred while loading the case record
+            </div>
+        </template>
+        <!-- Toggle Button -->
+        <div class="slds-m-top_medium">
+            <lightning-button label={toggleButtonLabel} onclick={toggleMode}></lightning-button>
+        </div>
+    </lightning-card>  
+</template>

@@ -1,0 +1,10 @@
+.custom-cell-wrapper {
+    padding: 0.5rem;
+    display: flex;
+    justify-content: flex-start; /* Align to the start of the cell */
+    align-items: center; /* Center align vertically */
+}
+
+.lightning-input {
+    width: 100%; /* Optional: Makes input take full width of its container */
+}

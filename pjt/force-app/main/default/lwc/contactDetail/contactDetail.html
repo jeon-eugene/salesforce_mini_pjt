@@ -1,0 +1,97 @@
+<template>
+    <lightning-card title="고객정보" icon-name="standard:contact">
+        <div class="slds-p-horizontal_medium slds-p-vertical_medium">
+            <lightning-layout multiple-rows>
+                <lightning-layout-item padding="around-small" size="6">
+                    <lightning-input
+                        class="my-input-class"
+                        label="성명"
+                        value={contactInfo.name}
+                        readonly
+                    >
+                    </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="6">
+                    <lightning-input
+                        class="my-input-class"
+                        label="이메일"
+                        value={contactInfo.email}
+                        readonly
+                    ></lightning-input>
+                </lightning-layout-item>
+
+                <lightning-layout-item padding="around-small" size="6">
+                    <lightning-input
+                        class="my-input-class"
+                        label="휴대폰 번호"
+                        value={contactInfo.phone}
+                        readonly
+                    ></lightning-input>
+                </lightning-layout-item>
+
+                <lightning-layout-item padding="around-small" size="6">
+                    <lightning-input
+                        class="my-input-class"
+                        label="관리자"
+                        value={contactInfo.ownerName}
+                        readonly
+                    ></lightning-input>
+                </lightning-layout-item>
+
+                <lightning-layout-item padding="around-small" size="6">
+                    <lightning-input
+                        class="my-input-class"
+                        label="인입 판매점"
+                        value={contactInfo.accountName}
+                        readonly
+                    ></lightning-input>
+                </lightning-layout-item>
+
+                <lightning-layout-item padding="around-small" size="6">
+                    <lightning-input
+                        class="my-input-class"
+                        label="상담횟수"
+                        value={contactInfo.numCases}
+                        readonly
+                    ></lightning-input>
+                </lightning-layout-item>
+
+                <lightning-layout-item padding="around-small" size="6">
+                    <lightning-input
+                        class="my-input-class"
+                        label="유형"
+                        value={contactInfo.type}
+                        readonly
+                    ></lightning-input>
+                </lightning-layout-item>
+
+                <lightning-layout-item padding="around-small" size="6">
+                    <lightning-input
+                        class="my-input-class"
+                        label="본체 최근 90일 구매 금액"
+                        value={contactInfo.mainAmount}
+                        readonly
+                    ></lightning-input>
+                </lightning-layout-item>
+
+                <lightning-layout-item padding="around-small" size="6">
+                    <lightning-input
+                        class="my-input-class"
+                        label="등급"
+                        value={contactInfo.level}
+                        readonly
+                    ></lightning-input>
+                </lightning-layout-item>
+
+                <lightning-layout-item padding="around-small" size="6">
+                    <lightning-input
+                        class="my-input-class"
+                        label="주변기기 최근 90일 구매 금액"
+                        value={contactInfo.subAmount}
+                        readonly
+                    ></lightning-input>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    </lightning-card>
+</template>

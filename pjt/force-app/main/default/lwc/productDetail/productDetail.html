@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title={cardTitle}>
+        <template if:true={wiredProduct.data}>
+            <lightning-button slot="actions" label="Go to record" onclick={onGoToRecord}></lightning-button>
+            <div class="slds-var-p-horizontal_medium">
+                <img src={picture} style="max-width:100%; max-height:100%">
+                <p><lightning-formatted-rich-text value={family}></lightning-formatted-rich-text></p>
+                <p><lightning-formatted-text value={code}></lightning-formatted-text></p>
+                <p><lightning-formatted-text value={formattedPrice}></lightning-formatted-text></p>
+            </div>
+        </template>
+    </lightning-card>
+</template>

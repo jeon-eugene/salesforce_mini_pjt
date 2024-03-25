@@ -1,0 +1,83 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <lightning-card>
+        <lightning-layout class="slds-p-right_medium">
+            <!-- 수량 -->
+            <lightning-layout-item size="1">
+                <div
+                    class="slds-grid slds-grid_vertical slds-grid_align-center vertical-center-container slds-m-around_x-small"
+                >
+                    <p class="slds-align_absolute-center slds-m-around_small">
+                        수량
+                    </p>
+                    <input
+                        class="slds-m-bottom_x-large slds-m-around_medium"
+                        type="number"
+                        value="1"
+                        min="1"
+                        onblur={handleQuantityChange}
+                    />
+                </div>
+            </lightning-layout-item>
+
+            <lightning-layout-item size="3">
+                <!-- 사진 -->
+                <img
+                    src={productImageUrl}
+                    alt="Product Image"
+                    style="max-width: 100%; height: 150px"
+                    class="slds-align_absolute-center"
+                />
+            </lightning-layout-item>
+            <!-- 상품 정보 -->
+            <lightning-layout-item size="4">
+                <p
+                    class="slds-p-vertical_xx-small slds-text-color_weak slds-text-title"
+                >
+                    {productFamily}
+                </p>
+                <h1 class="slds-p-vertical_xx-small slds-text-heading_large">
+                    {productName}
+                </h1>
+                <p
+                    class="slds-p-vertical_xx-small slds-text-color_weak slds-text-body_small"
+                >
+                    제품코드: {productCode}
+                </p>
+                <p class="slds-p-vertical_xx-small slds-text-body_regular">
+                    가격: {price}원
+                </p>
+            </lightning-layout-item>
+
+            <!-- 시리얼 번호 입력 테이블 -->
+            <lightning-layout-item size="4">
+                <div
+                    class="datatable-container serial-numbers-border"
+                    title="시리얼 번호 입력"
+                >
+                    <lightning-datatable
+                        data={serialNumbers}
+                        columns={serialTableColumns}
+                        key-field="index"
+                        onsave={handleSave}
+                        draft-values={draftValues}
+                        hide-checkbox-column="true"
+                    >
+                    </lightning-datatable>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item></lightning-layout-item>
+        </lightning-layout>
+
+        <!-- 삭제 버튼 -->
+        <lightning-button
+            icon-name="utility:delete"
+            variant="destructive"
+            title="Remove Product"
+            alternative-text="Remove Product"
+            slot="actions"
+            class="slds-float_right"
+            onclick={handleClick}
+        ></lightning-button>
+    </lightning-card>
+</template>

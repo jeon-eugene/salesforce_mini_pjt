@@ -1,0 +1,42 @@
+<template>
+    <lightning-card>
+        <lightning-vertical-navigation
+            onselect={onselect}
+            selected-item="contactdetail"
+        >
+            <lightning-vertical-navigation-section label="고객">
+                <lightning-vertical-navigation-item-icon
+                    label="고객정보"
+                    name="contactdetail"
+                    icon-name="utility:groups"
+                ></lightning-vertical-navigation-item-icon>
+                <lightning-vertical-navigation-item-icon
+                    label="구매내역"
+                    name="orderhistory"
+                    icon-name="utility:travel_and_places"
+                ></lightning-vertical-navigation-item-icon>
+                <lightning-vertical-navigation-item-icon
+                    label="상담내역"
+                    name="casehistory"
+                    icon-name="utility:metrics"
+                ></lightning-vertical-navigation-item-icon>
+            </lightning-vertical-navigation-section>
+
+            <lightning-vertical-navigation-section label="상담">
+                <lightning-vertical-navigation-item-icon
+                    label="상담 작성"
+                    name="flowview"
+                    icon-name="utility:note"
+                ></lightning-vertical-navigation-item-icon>
+            </lightning-vertical-navigation-section>
+
+            <lightning-vertical-navigation-section label="판매">
+                <lightning-vertical-navigation-item-icon
+                    label="판매기록 작성"
+                    name="order"
+                    icon-name="utility:note"
+                ></lightning-vertical-navigation-item-icon>
+            </lightning-vertical-navigation-section>
+        </lightning-vertical-navigation>
+    </lightning-card>
+</template>

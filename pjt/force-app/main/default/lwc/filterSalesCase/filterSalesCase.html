@@ -1,0 +1,28 @@
+<template>
+    <lightning-card title="오프라인 상담 목록" icon-name="standard:case">
+        <div class="slds-p-around_medium">
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+                    <lightning-combobox label="범위" value={range} options={rangeOptions} onchange={handleRange}></lightning-combobox>
+                </div>
+                <div class="slds-col">
+                    <lightning-combobox label="타입" value={stopped} options={stoppedOptions} onchange={handleStopped}></lightning-combobox>
+                </div>
+            </div>
+            <template if:true={loading}>
+                <div class="slds-m-top_medium slds-align_absolute-center">
+                    <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+                </div>
+            </template>
+            <template if:false={loading}>
+                <lightning-datatable
+                    key-field="Id"
+                    data={cases}
+                    columns={columns}
+                    sorted-by={sortBy}
+                    sorted-direction={sortDirection}>
+                </lightning-datatable>
+            </template>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,23 @@
+<template>
+    <lightning-tabset variant="scoped">
+        <lightning-tab label="타일로 보기">
+            <div class="slds-scrollable scrollerSize">
+                <c-product-tiles
+                    product-list={products.data}
+                    onproductselected={handleProductSelected}
+                ></c-product-tiles>
+            </div>
+        </lightning-tab>
+        <lightning-tab label="표로 보기">
+            <div class="slds-scrollable scrollerSize">
+                <c-product-datatable
+                    pk-field="Id"
+                    column-config={cols}
+                    row-data={products.data}
+                    onrowclick={handleRowClick}
+                    selected-product-id={selectedProductId}
+                ></c-product-datatable>
+            </div>
+        </lightning-tab>
+    </lightning-tabset>
+</template>

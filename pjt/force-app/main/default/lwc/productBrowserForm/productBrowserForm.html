@@ -1,0 +1,72 @@
+<template>
+    <div class="slds-var-m-bottom_small">
+        <lightning-card title="판매내역 작성하기" icon-name="utility:note">
+            <lightning-layout horizontal-align="center">
+                <!-- 고객 이름 -->
+                <lightning-layout-item padding="around-small" size="3">
+                    <!-- 고객 레코드 페이지에서는 disabled 되고 아닌경우는 활성화 -->
+                    <template lwc:if={isRecordPage}>
+                        <lightning-combobox
+                            label="고객명"
+                            variant="label-hidden"
+                            placeholder={selectedContactName}
+                            disabled
+                        >
+                        </lightning-combobox>
+                    </template>
+                    <template lwc:else>
+                        <lightning-combobox
+                            label="고객명"
+                            variant="label-hidden"
+                            options={contacts}
+                            placeholder="고객명을 선택해주세요"
+                        >
+                        </lightning-combobox>
+                    </template>
+                </lightning-layout-item>
+
+                <!-- 제품명 -->
+                <lightning-layout-item padding="around-small" size="5">
+                    <lightning-combobox
+                        label="Select Product"
+                        variant="label-hidden"
+                        options={products}
+                        value={selectedProdutId}
+                        placeholder="제품명을 선택하세요"
+                        onchange={handleSelected}
+                    >
+                    </lightning-combobox>
+                </lightning-layout-item>
+
+                <!-- 추가 버튼을 눌렀을 때 -->
+                <lightning-layout-item padding="around-small">
+                    <template lwc:if={isButtonDisabled}>
+                        <lightning-button
+                            variant="success"
+                            label="추가"
+                            onclick={onAddProduct}
+                            disabled
+                        >
+                        </lightning-button>
+                    </template>
+                    <template lwc:else>
+                        <lightning-button
+                            variant="success"
+                            label="추가"
+                            onclick={onAddProduct}
+                        >
+                        </lightning-button>
+                    </template>
+                </lightning-layout-item>
+            </lightning-layout>
+
+            <!-- Product를 등록 할 때 -->
+            <lightning-button
+                variant="neutral"
+                label="새 제품 등록"
+                slot="actions"
+                onclick={onAddNewProduct}
+            ></lightning-button>
+        </lightning-card>
+    </div>
+</template>

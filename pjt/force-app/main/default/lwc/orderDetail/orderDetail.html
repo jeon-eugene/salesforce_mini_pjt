@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="주문 정보">
+        <template if:true={wiredOrderSales.data}>
+            <div class="slds-var-p-horizontal_medium">
+                <p><lightning-formatted-date-time value={date}></lightning-formatted-date-time></p>
+                <p><lightning-formatted-text value={status}></lightning-formatted-text></p>
+                <p><lightning-formatted-number value={amount}></lightning-formatted-number></p>
+                <p><lightning-formatted-number value={discountRate}></lightning-formatted-number></p>
+                <p><lightning-formatted-number value={netAmount}></lightning-formatted-number></p>
+                <!-- <p><lightning-formatted-number value={bodyAmount}></lightning-formatted-number></p>
+                <p><lightning-formatted-number value={subAmount}></lightning-formatted-number></p> -->
+            </div>
+        </template>
+    </lightning-card>
+</template>

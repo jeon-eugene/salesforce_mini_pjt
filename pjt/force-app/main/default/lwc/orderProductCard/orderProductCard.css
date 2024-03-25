@@ -1,0 +1,15 @@
+.vertical-center-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.datatable-container {
+    height: 160px;
+}
+
+.serial-numbers-border {
+    border: 1px solid #d3d3d3;
+    box-sizing: border-box;
+}

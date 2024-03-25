@@ -1,0 +1,51 @@
+<template>
+    <lightning-card title="판매정보" icon-name="custom:custom14">
+        <div class="slds-p-around_medium">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th scope="col"><div class="slds-truncate" title="고객">고객</div></th>
+                        <th scope="col"><div class="slds-truncate" title="제품 선택">제품</div></th>
+                        <th scope="col"><div class="slds-truncate" title="제품군">제품군</div></th>
+                        <th scope="col"><div class="slds-truncate" title="제품코드">제품코드</div></th>
+                        <th scope="col"><div class="slds-truncate" title="가격">가격</div></th>
+                        <th scope="col"><div class="slds-truncate" title="수량">수량</div></th>
+                        <th scope="col"><div class="slds-truncate" title="시리얼 번호">시리얼 번호</div></th>
+                        <th scope="col"><div class="slds-truncate" title="할인율(%)">할인율(%)</div></th>
+                        <th scope="col"><div class="slds-truncate" title="상태(판매완료/환불)">상태(판매완료/환불)</div></th>
+                        <th scope="col"><div class="slds-truncate" title="판매날짜">판매날짜</div></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>홍길동</td>
+                        <td>맥북</td>
+                        <template if:true={productDetail}>
+                            <td>{productDetail.Family}</td>
+                            <td>{productDetail.Code}</td>
+                            <td>{productDetail.Price}</td>
+                            <td>
+                                <div class="custom-cell-wrapper">
+                                    <lightning-input type="number" label="Quantity" onblur={handleQuantityChange}></lightning-input>
+                                </div>
+                            </td>
+                            <td colspan="3"> <!-- Adjust colspan to cover the rest of the table -->
+                                <template for:each={serialNumbers} for:item="serialNumber" for:index="index">
+                                    <div key={serialNumber.id} class="custom-cell-wrapper">
+                                        <lightning-input type="text" label="Serial Number" name="serialNumber"
+                                            value={serialNumber.value} data-index={index}
+                                            onchange={handleSerialNumberChange}>
+                                        </lightning-input>
+                                    </div>
+                                </template>
+                            </td>
+                        </template>
+                        <td>{productDetail.discount}</td>
+                        <td>{productDetail.status}</td>
+                        <td>{productDetail.soldDate}</td>
+                    </tr>   
+                </tbody>
+            </table>
+        </div>
+    </lightning-card>
+</template>

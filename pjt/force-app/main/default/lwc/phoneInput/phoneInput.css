@@ -1,0 +1,21 @@
+.options-container {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    max-height: 150px; /* 옵션들이 너무 많이 펼쳐지지 않도록 제한 */
+    overflow-y: auto; /* 옵션이 너무 많을 경우 스크롤 가능하도록 설정 */
+    z-index: 9999; /* 다른 요소 위에 레이어를 올리기 위해 설정 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+    width: 100%; /* 전체 너비를 차지하도록 설정 */
+}
+
+.option {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* 배경색 전환 애니메이션 적용 */
+}
+
+.option:hover {
+    background-color: #f0f0f0; /* 마우스를 올렸을 때 배경색 변경 */
+}

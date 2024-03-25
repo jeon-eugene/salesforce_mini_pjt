@@ -1,0 +1,32 @@
+<template>
+    <lightning-card title="구매 목록" icon-name="standard:orders">
+        <div class="slds-m-around_medium">
+            <template if:true={orderInfo}>
+                <lightning-datatable
+                    key-field="id"
+                    data={orderInfo}
+                    columns={cols}
+                    onrowclick={handleRowClick}>
+                </lightning-datatable>
+            </template>
+            <template if:false={orderInfo}>
+                <p>구매한 내역이 존재하지 않습니다.</p>
+            </template>
+        </div>
+    </lightning-card>
+    <lightning-card title="환불 목록" icon-name="standard:orders">
+        <div class="slds-m-around_medium">
+            <template if:true={refundInfo}>
+                <lightning-datatable
+                    key-field="id"
+                    data={refundInfo}
+                    columns={cols}
+                    onrowclick={handleRowClick}>
+                </lightning-datatable>
+            </template>
+            <template if:false={refundInfo}>
+                <p>환불한 내역이 존재하지 않습니다.</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

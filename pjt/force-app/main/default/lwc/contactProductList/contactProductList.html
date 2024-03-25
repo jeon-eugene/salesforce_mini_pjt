@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="고객이 가진 제품 목록" icon-name="custom:custom63">
+        <div class="slds-m-around_medium">
+            <lightning-datatable
+                key-field="id"
+                data={productList}
+                columns={cols}
+                hide-checkbox-column="true"
+                onrowselection={handleRowSelection}>
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+</template>

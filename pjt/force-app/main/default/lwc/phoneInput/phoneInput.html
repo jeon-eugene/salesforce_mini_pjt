@@ -1,0 +1,10 @@
+<template>
+    <lightning-input label="전화번호 입력" type="text" value={phoneNum} onchange={handleChange}></lightning-input>
+    <template if:true={showOptions}>
+        <div class="options-container">
+            <template for:each={phoneOptions} for:item="option">
+                <div key={option} class="option" onclick={selectOption}>{option}</div>
+            </template>
+        </div>
+    </template>
+</template>

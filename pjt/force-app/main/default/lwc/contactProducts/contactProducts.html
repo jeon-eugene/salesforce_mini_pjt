@@ -1,0 +1,15 @@
+<template>
+    <lightning-card>
+        <template if:true={productList}>
+            <lightning-datatable
+                key-field="id"
+                data={productList}
+                columns={columns}
+                onrowselection={handleRowSelection}>
+            </lightning-datatable>
+        </template>
+        <template if:true={error}>
+            <div class="slds-text-color_error">{error}</div>
+        </template>
+    </lightning-card>
+</template>

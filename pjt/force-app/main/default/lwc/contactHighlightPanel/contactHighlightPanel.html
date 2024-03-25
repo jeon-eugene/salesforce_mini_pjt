@@ -1,0 +1,39 @@
+<template>
+    <div class="highlight-panel">
+        <template if:true={contact}>
+            <lightning-card title="고객" icon-name="standard:contact" class="slds-m-bottom_medium">
+                <div class="customer-header slds-grid slds-wrap slds-grid_align-spread slds-p-horizontal_small">
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input label="이름" value={contact.Name} readonly></lightning-input>
+                    </div>
+                </div>
+                <lightning-button label="편집" onclick={handleEdit} slot="actions"></lightning-button>
+            </lightning-card>
+
+            <lightning-layout class="slds-grid slds-wrap">
+                <lightning-layout-item padding="around-small" size="2" class="slds-col slds-size_1-of-4">
+                    <lightning-input label="휴대폰 번호" value={contact.PhoneNumber__c} readonly></lightning-input>
+                </lightning-layout-item>
+
+                <lightning-layout-item padding="around-small" size="2" class="slds-col slds-size_1-of-4">
+                    <lightning-input label="판매점" value={contactAccountName} readonly></lightning-input>
+                </lightning-layout-item>
+
+                <lightning-layout-item padding="around-small" size="2" class="slds-col slds-size_1-of-4">
+                    <lightning-input label="유형" value={contact.Type__c} readonly></lightning-input>
+                </lightning-layout-item>
+
+                <lightning-layout-item padding="around-small" size="2" class="slds-col slds-size_1-of-4">
+                    <lightning-input label="등급" value={contact.Level__c} readonly></lightning-input>
+                </lightning-layout-item>
+
+                <lightning-layout-item padding="around-small" size="2" class="slds-col slds-size_1-of-4">
+                    <lightning-input label="상담횟수" value={contact.Count_Cases_c__c} readonly></lightning-input>
+                </lightning-layout-item>
+            </lightning-layout>
+        </template>
+        <template if:true={contactError}>
+            <p>고객 정보를 불러오는 데 실패했습니다.</p>
+        </template>
+    </div>
+</template>

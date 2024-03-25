@@ -1,0 +1,50 @@
+<template>
+    <c-product-browser-form
+        onadd={handleAddProductSubmit}
+        record-id={recordId}
+    ></c-product-browser-form>
+    <template for:each={selectedProducts} for:item="product">
+        <div key={product.Id} class="slds-var-m-bottom_small">
+            <c-order-product-card
+                product-data={product}
+                ondelete={handleDeleteCard}
+                onsavetable={handleSaveTable}
+            ></c-order-product-card>
+        </div>
+    </template>
+    <lightning-card>
+        <!-- Fotter -->
+        <lightning-layout horizontal-align="center">
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-input
+                    name="discount"
+                    label="할인율(%)"
+                    value="0"
+                    required
+                    onchange={onChange}
+                ></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-input
+                    type="date"
+                    name="orderDate"
+                    label="판매날짜"
+                    value={date}
+                    required
+                    onchange={onChange}
+                ></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item
+                padding="around-small"
+                style="align-self: end"
+            >
+                <lightning-button
+                    variant="success"
+                    label="저장"
+                    onclick={handleSaveOrder}
+                >
+                </lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template>
